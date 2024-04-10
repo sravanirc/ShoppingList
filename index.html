@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>First HTML page with external Script</title>
+<style>
+    body{
+        color: darkblue ;
+        background-color: azure;
+      /* text-align: center; */
+      width: 80%;
+      margin: auto;
+    }
+ .checked{
+        text-decoration: line-through;
+    }
+    h1{
+        background-color: brown;
+        text-align: center;
+        border-radius: 2em;
+
+    }
+    ul{ 
+        width: 50%;
+    }
+    ul.li{
+        list-style-position:inside;
+    }
+   
+</style>
+</head>
+
+<body>
+    <h1>Your Shopping List</h1>
+    <p>Here is your list:</p>
+    <ul id="groceryList"></ul>
+
+    <input type="text" id="inputItem" value="" placeholder="Type here to add to your list..">
+    <button id="addNewItem"> Add to Shopping list</button>
+    <script src="./main.js"></script>
+
+    <!-- <script type="text/javascript" src="example.js"></script> -->
+</body>
+
+
+</html>
