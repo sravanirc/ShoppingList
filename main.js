@@ -57,10 +57,8 @@ let butt = document.getElementById("addNewItem");
 butt.addEventListener("click",addItem);
 document.getElementById("inputItem").addEventListener("keyup",(event)=>{if(event.key==="Enter"){addItem()}}); //adds item to shoppinglist when enter key is pressed
 let spans= document.querySelectorAll(".delete");
-console.log(spans);
 spans.forEach((item)=>addEventListener("click",deleteItem));
-// setDefaultChecked(groceryItems[0]);
-// setDefaultChecked(groceryItems[1]);
+
 
 let list = document.getElementById("groceryList");
 list.addEventListener("click", (event)=>{ if(event.target.tagName==='LI'){setDefaultChecked(event.target.id)}});
