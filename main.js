@@ -1,26 +1,6 @@
 //array of items created
 let groceryItems = [];
 
-
-//this function creates an element for each item in the list and gives it id of itemtext. 
-
-function displayItems(){
-let list= document.getElementById("groceryList");
-  list.innerHTML="";
-  if(groceryItems.length==0){
-    document.getElementById("groceryList").addEventListener("click",deleteItem); // this is to initialise the evenlistener for deletItems/ 
-  }
-  groceryItems.forEach((item)=>{
-  let eachItem = document.createElement("li");                                                                            
-  eachItem.setAttribute("id",item);
-  eachItem.textContent = item;
-  eachItem.innerHTML += `<span class="delete" id=${item} >\u00D7</span>`;
-  list.appendChild(eachItem);
-  });
-  //deleteItem();
-
-}
-
 // This function gets each item with the given id and changes its style to line-through
 function setDefaultChecked(item){
     let selected = document.getElementById(item);
@@ -45,16 +25,15 @@ function addItem(){
 // This function deletes the selected based on where the click event occurs
 function deleteItem(item){
     let str= item.target;
-    console.log(str.id);
+    //console.log(str.id);
     if(str.textContent=='\u00D7'){ // this is to delete only when the X is clicked and nowehere else
         groceryItems.splice(groceryItems.indexOf(str.id),1);
-        displayItems();
-        }   
+        document.getElementById(str.id).remove();
+      }   
 }
 
-displayItems();
-let butt = document.getElementById("addNewItem");
-butt.addEventListener("click",addItem);
+document.getElementById("groceryList").addEventListener("click",deleteItem);
+document.getElementById("addNewItem").addEventListener("click",addItem);
 document.getElementById("inputItem").addEventListener("keyup",(event)=>{if(event.key==="Enter"){addItem()}}); //adds item to shoppinglist when enter key is pressed
 let spans= document.querySelectorAll(".delete");
 spans.forEach((item)=>addEventListener("click",deleteItem));
